@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DB_DELIMITER",""],["METADATA_VERSION",""]],"enum":[["Error",""],["Notification",""],["OverrideReason",""]],"mod":[["notify","Notification handlers."],["utils",""]],"struct":[["Cfg",""],["OverrideDB",""],["Toolchain",""]],"type":[["NotifyHandler",""],["Result",""],["SharedNotifyHandler",""]]});

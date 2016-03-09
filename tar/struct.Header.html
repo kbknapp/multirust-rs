@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Header` struct in crate `tar`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Header">
+
+    <title>tar::Header - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>tar</a></p><script>window.sidebarCurrent = {name: 'Header', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>tar</a>::<wbr><a class='struct' href=''>Header</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-583' class='srclink' href='../src/tar/header.rs.html.html#18-20' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Header {
+    // some fields omitted
+}</pre><div class='docblock'><p>Representation of the header of an entry in an archive</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../tar/struct.Header.html' title='tar::Header'>Header</a></code></h3><div class='impl-items'><h4 id='method.new_gnu' class='method'><code>fn <a href='#method.new_gnu' class='fnname'>new_gnu</a>() -&gt; <a class='struct' href='../tar/struct.Header.html' title='tar::Header'>Header</a></code></h4>
+<div class='docblock'><p>Creates a new blank GNU header.</p>
+
+<p>The GNU style header is the default for this library and allows various
+extensions such as long path names, long link names, and setting the
+atime/ctime metadata attributes of files.</p>
+</div><h4 id='method.new_ustar' class='method'><code>fn <a href='#method.new_ustar' class='fnname'>new_ustar</a>() -&gt; <a class='struct' href='../tar/struct.Header.html' title='tar::Header'>Header</a></code></h4>
+<div class='docblock'><p>Creates a new blank UStar header.</p>
+
+<p>The UStar style header is an extension of the original archive header
+which enables some extra metadata along with storing a longer (but not
+too long) path name.</p>
+
+<p>UStar is also the basis used for pax archives.</p>
+</div><h4 id='method.new_old' class='method'><code>fn <a href='#method.new_old' class='fnname'>new_old</a>() -&gt; <a class='struct' href='../tar/struct.Header.html' title='tar::Header'>Header</a></code></h4>
+<div class='docblock'><p>Creates a new blank old header.</p>
+
+<p>This header format is the original archive header format which all other
+versions are compatible with (e.g. they are a superset). This header
+format limits the path name limit and isn&#39;t able to contain extra
+metadata like atime/ctime.</p>
+</div><h4 id='method.as_old' class='method'><code>fn <a href='#method.as_old' class='fnname'>as_old</a>(&amp;self) -&gt; &amp;OldHeader</code></h4>
+<div class='docblock'><p>View this archive header as a raw &quot;old&quot; archive header.</p>
+
+<p>This view will always succeed as all archive header formats will fill
+out at least the fields specified in the old header format.</p>
+</div><h4 id='method.as_old_mut' class='method'><code>fn <a href='#method.as_old_mut' class='fnname'>as_old_mut</a>(&amp;mut self) -&gt; &amp;mut OldHeader</code></h4>
+<div class='docblock'><p>Same as <code>as_old</code>, but the mutable version.</p>
+</div><h4 id='method.as_ustar' class='method'><code>fn <a href='#method.as_ustar' class='fnname'>as_ustar</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../tar/struct.UstarHeader.html' title='tar::UstarHeader'>UstarHeader</a>&gt;</code></h4>
+<div class='docblock'><p>View this archive header as a raw UStar archive header.</p>
+
+<p>The UStar format is an extension to the tar archive format which enables
+longer pathnames and a few extra attributes such as the group and user
+name.</p>
+
+<p>This cast may not succeed as this function will test whether the
+magic/version fields of the UStar format have the appropriate values,
+returning <code>None</code> if they aren&#39;t correct.</p>
+</div><h4 id='method.as_ustar_mut' class='method'><code>fn <a href='#method.as_ustar_mut' class='fnname'>as_ustar_mut</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;mut <a class='struct' href='../tar/struct.UstarHeader.html' title='tar::UstarHeader'>UstarHeader</a>&gt;</code></h4>
+<div class='docblock'><p>Same as <code>as_ustar_mut</code>, but the mutable version.</p>
+</div><h4 id='method.as_gnu' class='method'><code>fn <a href='#method.as_gnu' class='fnname'>as_gnu</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../tar/struct.GnuHeader.html' title='tar::GnuHeader'>GnuHeader</a>&gt;</code></h4>
+<div class='docblock'><p>View this archive header as a raw GNU archive header.</p>
+
+<p>The GNU format is an extension to the tar archive format which enables
+longer pathnames and a few extra attributes such as the group and user
+name.</p>
+
+<p>This cast may not succeed as this function will test whether the
+magic/version fields of the GNU format have the appropriate values,
+returning <code>None</code> if they aren&#39;t correct.</p>
+</div><h4 id='method.as_gnu_mut' class='method'><code>fn <a href='#method.as_gnu_mut' class='fnname'>as_gnu_mut</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;mut <a class='struct' href='../tar/struct.GnuHeader.html' title='tar::GnuHeader'>GnuHeader</a>&gt;</code></h4>
+<div class='docblock'><p>Same as <code>as_gnu</code>, but the mutable version.</p>
+</div><h4 id='method.as_bytes' class='method'><code>fn <a href='#method.as_bytes' class='fnname'>as_bytes</a>(&amp;self) -&gt; &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 512]</a></code></h4>
+<div class='docblock'><p>Returns a view into this header as a byte array.</p>
+</div><h4 id='method.as_mut_bytes' class='method'><code>fn <a href='#method.as_mut_bytes' class='fnname'>as_mut_bytes</a>(&amp;mut self) -&gt; &amp;mut <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 512]</a></code></h4>
+<div class='docblock'><p>Returns a view into this header as a byte array.</p>
+</div><h4 id='method.set_metadata' class='method'><code>fn <a href='#method.set_metadata' class='fnname'>set_metadata</a>(&amp;mut self, meta: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/fs/struct.Metadata.html' title='std::fs::Metadata'>Metadata</a>)</code></h4>
+<div class='docblock'><p>Blanket sets the metadata in this header from the metadata argument
+provided.</p>
+
+<p>This is useful for initializing a <code>Header</code> from the OS&#39;s metadata from a
+file.</p>
+</div><h4 id='method.size' class='method'><code>fn <a href='#method.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the file size this header represents.</p>
+
+<p>May return an error if the field is corrupted.</p>
+</div><h4 id='method.set_size' class='method'><code>fn <a href='#method.set_size' class='fnname'>set_size</a>(&amp;mut self, size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>)</code></h4>
+<div class='docblock'><p>Encodes the <code>size</code> argument into the size field of this header.</p>
+</div><h4 id='method.path' class='method'><code>fn <a href='#method.path' class='fnname'>path</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html' title='collections::borrow::Cow'>Cow</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns the raw path name stored in this header.</p>
+
+<p>This method may fail if the pathname is not valid unicode and this is
+called on a Windows platform.</p>
+
+<p>Note that this function will convert any <code>\</code> characters to directory
+separators.</p>
+</div><h4 id='method.path_bytes' class='method'><code>fn <a href='#method.path_bytes' class='fnname'>path_bytes</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html' title='collections::borrow::Cow'>Cow</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the pathname stored in this header as a byte array.</p>
+
+<p>This function is guaranteed to succeed, but you may wish to call the
+<code>path</code> method to convert to a <code>Path</code>.</p>
+
+<p>Note that this function will convert any <code>\</code> characters to directory
+separators.</p>
+</div><h4 id='method.set_path' class='method'><code>fn <a href='#method.set_path' class='fnname'>set_path</a>&lt;P: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(&amp;mut self, p: P) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the path name for this header.</p>
+
+<p>This function will set the pathname listed in this header, encoding it
+in the appropriate format. May fail if the path is too long or if the
+path specified is not unicode and this is a Windows platform.</p>
+</div><h4 id='method.link_name' class='method'><code>fn <a href='#method.link_name' class='fnname'>link_name</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html' title='collections::borrow::Cow'>Cow</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns the link name stored in this header, if any is found.</p>
+
+<p>This method may fail if the pathname is not valid unicode and this is
+called on a Windows platform. <code>Ok(None)</code> being returned, however,
+indicates that the link name was not present.</p>
+
+<p>Note that this function will convert any <code>\</code> characters to directory
+separators.</p>
+</div><h4 id='method.link_name_bytes' class='method'><code>fn <a href='#method.link_name_bytes' class='fnname'>link_name_bytes</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html' title='collections::borrow::Cow'>Cow</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns the link name stored in this header as a byte array, if any.</p>
+
+<p>This function is guaranteed to succeed, but you may wish to call the
+<code>link_name</code> method to convert to a <code>Path</code>.</p>
+
+<p>Note that this function will convert any <code>\</code> characters to directory
+separators.</p>
+</div><h4 id='method.set_link_name' class='method'><code>fn <a href='#method.set_link_name' class='fnname'>set_link_name</a>&lt;P: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(&amp;mut self, p: P) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the path name for this header.</p>
+
+<p>This function will set the pathname listed in this header, encoding it
+in the appropriate format. May fail if the path is too long or if the
+path specified is not unicode and this is a Windows platform.</p>
+</div><h4 id='method.mode' class='method'><code>fn <a href='#method.mode' class='fnname'>mode</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the mode bits for this file</p>
+
+<p>May return an error if the field is corrupted.</p>
+</div><h4 id='method.set_mode' class='method'><code>fn <a href='#method.set_mode' class='fnname'>set_mode</a>(&amp;mut self, mode: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>)</code></h4>
+<div class='docblock'><p>Encodes the <code>mode</code> provided into this header.</p>
+</div><h4 id='method.uid' class='method'><code>fn <a href='#method.uid' class='fnname'>uid</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the value of the owner&#39;s user ID field</p>
+
+<p>May return an error if the field is corrupted.</p>
+</div><h4 id='method.set_uid' class='method'><code>fn <a href='#method.set_uid' class='fnname'>set_uid</a>(&amp;mut self, uid: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>)</code></h4>
+<div class='docblock'><p>Encodes the <code>uid</code> provided into this header.</p>
+</div><h4 id='method.gid' class='method'><code>fn <a href='#method.gid' class='fnname'>gid</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the value of the group&#39;s user ID field</p>
+</div><h4 id='method.set_gid' class='method'><code>fn <a href='#method.set_gid' class='fnname'>set_gid</a>(&amp;mut self, gid: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>)</code></h4>
+<div class='docblock'><p>Encodes the <code>gid</code> provided into this header.</p>
+</div><h4 id='method.mtime' class='method'><code>fn <a href='#method.mtime' class='fnname'>mtime</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the last modification time in Unix time format</p>
+</div><h4 id='method.set_mtime' class='method'><code>fn <a href='#method.set_mtime' class='fnname'>set_mtime</a>(&amp;mut self, mtime: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>)</code></h4>
+<div class='docblock'><p>Encodes the <code>mtime</code> provided into this header.</p>
+
+<p>Note that this time is typically a number of seconds passed since
+January 1, 1970.</p>
+</div><h4 id='method.username' class='method'><code>fn <a href='#method.username' class='fnname'>username</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;, <a class='struct' href='https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html' title='core::str::Utf8Error'>Utf8Error</a>&gt;</code></h4>
+<div class='docblock'><p>Return the user name of the owner of this file.</p>
+
+<p>A return value of <code>Ok(Some(..))</code> indicates that the user name was
+present and was valid utf-8, <code>Ok(None)</code> indicates that the user name is
+not present in this archive format, and <code>Err</code> indicates that the user
+name was present but was not valid utf-8.</p>
+</div><h4 id='method.username_bytes' class='method'><code>fn <a href='#method.username_bytes' class='fnname'>username_bytes</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the user name of the owner of this file, if present.</p>
+
+<p>A return value of <code>None</code> indicates that the user name is not present in
+this header format.</p>
+</div><h4 id='method.set_username' class='method'><code>fn <a href='#method.set_username' class='fnname'>set_username</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the username inside this header.</p>
+
+<p>This function will return an error if this header format cannot encode a
+user name or the name is too long.</p>
+</div><h4 id='method.groupname' class='method'><code>fn <a href='#method.groupname' class='fnname'>groupname</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;, <a class='struct' href='https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html' title='core::str::Utf8Error'>Utf8Error</a>&gt;</code></h4>
+<div class='docblock'><p>Return the group name of the owner of this file.</p>
+
+<p>A return value of <code>Ok(Some(..))</code> indicates that the group name was
+present and was valid utf-8, <code>Ok(None)</code> indicates that the group name is
+not present in this archive format, and <code>Err</code> indicates that the group
+name was present but was not valid utf-8.</p>
+</div><h4 id='method.groupname_bytes' class='method'><code>fn <a href='#method.groupname_bytes' class='fnname'>groupname_bytes</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the group name of the owner of this file, if present.</p>
+
+<p>A return value of <code>None</code> indicates that the group name is not present in
+this header format.</p>
+</div><h4 id='method.set_groupname' class='method'><code>fn <a href='#method.set_groupname' class='fnname'>set_groupname</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the group name inside this header.</p>
+
+<p>This function will return an error if this header format cannot encode a
+group name or the name is too long.</p>
+</div><h4 id='method.device_major' class='method'><code>fn <a href='#method.device_major' class='fnname'>device_major</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns the device major number, if present.</p>
+
+<p>This field may not be present in all archives, and it may not be
+correctly formed in all archives. <code>Ok(Some(..))</code> means it was present
+and correctly decoded, <code>Ok(None)</code> indicates that this header format does
+not include the device major number, and <code>Err</code> indicates that it was
+present and failed to decode.</p>
+</div><h4 id='method.set_device_major' class='method'><code>fn <a href='#method.set_device_major' class='fnname'>set_device_major</a>(&amp;mut self, major: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Encodes the value <code>major</code> into the dev_major field of this header.</p>
+
+<p>This function will return an error if this header format cannot encode a
+major device number.</p>
+</div><h4 id='method.device_minor' class='method'><code>fn <a href='#method.device_minor' class='fnname'>device_minor</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns the device minor number, if present.</p>
+
+<p>This field may not be present in all archives, and it may not be
+correctly formed in all archives. <code>Ok(Some(..))</code> means it was present
+and correctly decoded, <code>Ok(None)</code> indicates that this header format does
+not include the device minor number, and <code>Err</code> indicates that it was
+present and failed to decode.</p>
+</div><h4 id='method.set_device_minor' class='method'><code>fn <a href='#method.set_device_minor' class='fnname'>set_device_minor</a>(&amp;mut self, minor: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Encodes the value <code>minor</code> into the dev_minor field of this header.</p>
+
+<p>This function will return an error if this header format cannot encode a
+minor device number.</p>
+</div><h4 id='method.entry_type' class='method'><code>fn <a href='#method.entry_type' class='fnname'>entry_type</a>(&amp;self) -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Returns the type of file described by this header.</p>
+</div><h4 id='method.set_entry_type' class='method'><code>fn <a href='#method.set_entry_type' class='fnname'>set_entry_type</a>(&amp;mut self, ty: <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a>)</code></h4>
+<div class='docblock'><p>Sets the type of file that will be described by this header.</p>
+</div><h4 id='method.cksum' class='method'><code>fn <a href='#method.cksum' class='fnname'>cksum</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the checksum field of this header.</p>
+
+<p>May return an error if the field is corrupted.</p>
+</div><h4 id='method.set_cksum' class='method'><code>fn <a href='#method.set_cksum' class='fnname'>set_cksum</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Sets the checksum field of this header based on the current fields in
+this header.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../tar/struct.Header.html' title='tar::Header'>Header</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../tar/struct.Header.html' title='tar::Header'>Header</a></code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "tar";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

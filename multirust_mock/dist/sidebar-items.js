@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MOCK_MANIFEST_VERSION",""]],"enum":[["ManifestVersion",""]],"fn":[["change_channel_date",""],["create_hash",""]],"struct":[["MockChannel",""],["MockComponent",""],["MockDistServer",""],["MockPackage",""],["MockTargettedPackage",""]]});

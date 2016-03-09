@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DEFAULT_MANIFEST_VERSION",""],["SUPPORTED_MANIFEST_VERSIONS",""]],"struct":[["Component",""],["Manifest",""],["Package",""],["TargettedPackage",""]]});

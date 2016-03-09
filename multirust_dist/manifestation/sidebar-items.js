@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CONFIG_FILE",""],["DIST_MANIFEST",""]],"enum":[["UpdateStatus",""]],"struct":[["Changes",""],["Manifestation",""]]});

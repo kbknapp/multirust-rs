@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["PaxExtension","A key/value pair corresponding to a pax extension."],["PaxExtensions","An iterator over the pax extensions in an archive entry."]]});

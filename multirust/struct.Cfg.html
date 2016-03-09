@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Cfg` struct in crate `multirust`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Cfg">
+
+    <title>multirust::Cfg - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>multirust</a></p><script>window.sidebarCurrent = {name: 'Cfg', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>multirust</a>::<wbr><a class='struct' href=''>Cfg</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-767' class='srclink' href='../src/multirust/src/multirust/config.rs.html.html#37-49' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Cfg {
+    pub multirust_dir: <a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>,
+    pub version_file: <a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>,
+    pub override_db: <a class='struct' href='../multirust/struct.OverrideDB.html' title='multirust::OverrideDB'>OverrideDB</a>,
+    pub default_file: <a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>,
+    pub toolchains_dir: <a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>,
+    pub update_hash_dir: <a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>,
+    pub temp_cfg: <a class='struct' href='../multirust_dist/temp/struct.Cfg.html' title='multirust_dist::temp::Cfg'>Cfg</a>,
+    pub gpg_key: <a class='enum' href='https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html' title='collections::borrow::Cow'>Cow</a>&lt;'static, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;,
+    pub env_override: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;,
+    pub dist_root_url: <a class='enum' href='https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html' title='collections::borrow::Cow'>Cow</a>&lt;'static, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;,
+    pub notify_handler: <a class='type' href='../multirust/type.SharedNotifyHandler.html' title='multirust::SharedNotifyHandler'>SharedNotifyHandler</a>,
+}</pre><h2 class='fields'>Fields</h2>
+<table><tr class='stab '>
+                                  <td id='structfield.multirust_dir'><code>multirust_dir</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.version_file'><code>version_file</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.override_db'><code>override_db</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.default_file'><code>default_file</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.toolchains_dir'><code>toolchains_dir</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.update_hash_dir'><code>update_hash_dir</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.temp_cfg'><code>temp_cfg</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.gpg_key'><code>gpg_key</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.env_override'><code>env_override</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.dist_root_url'><code>dist_root_url</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.notify_handler'><code>notify_handler</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../multirust/struct.Cfg.html' title='multirust::Cfg'>Cfg</a></code></h3><div class='impl-items'><h4 id='method.from_env' class='method'><code>fn <a href='#method.from_env' class='fnname'>from_env</a>(notify_handler: <a class='type' href='../multirust/type.SharedNotifyHandler.html' title='multirust::SharedNotifyHandler'>SharedNotifyHandler</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;Self&gt;</code></h4>
+<h4 id='method.set_default' class='method'><code>fn <a href='#method.set_default' class='fnname'>set_default</a>(&amp;self, toolchain: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.get_toolchain' class='method'><code>fn <a href='#method.get_toolchain' class='fnname'>get_toolchain</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, create_parent: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='struct' href='../multirust/struct.Toolchain.html' title='multirust::Toolchain'>Toolchain</a>&gt;</code></h4>
+<h4 id='method.verify_toolchain' class='method'><code>fn <a href='#method.verify_toolchain' class='fnname'>verify_toolchain</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='struct' href='../multirust/struct.Toolchain.html' title='multirust::Toolchain'>Toolchain</a>&gt;</code></h4>
+<h4 id='method.get_hash_file' class='method'><code>fn <a href='#method.get_hash_file' class='fnname'>get_hash_file</a>(&amp;self, toolchain: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, create_parent: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>&gt;</code></h4>
+<h4 id='method.which_binary' class='method'><code>fn <a href='#method.which_binary' class='fnname'>which_binary</a>(&amp;self, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, binary: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>&gt;&gt;</code></h4>
+<h4 id='method.upgrade_data' class='method'><code>fn <a href='#method.upgrade_data' class='fnname'>upgrade_data</a>(&amp;self) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.delete_data' class='method'><code>fn <a href='#method.delete_data' class='fnname'>delete_data</a>(&amp;self) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.find_default' class='method'><code>fn <a href='#method.find_default' class='fnname'>find_default</a>(&amp;self) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../multirust/struct.Toolchain.html' title='multirust::Toolchain'>Toolchain</a>&gt;&gt;</code></h4>
+<h4 id='method.find_override' class='method'><code>fn <a href='#method.find_override' class='fnname'>find_override</a>(&amp;self, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='struct' href='../multirust/struct.Toolchain.html' title='multirust::Toolchain'>Toolchain</a>, <a class='enum' href='../multirust/enum.OverrideReason.html' title='multirust::OverrideReason'>OverrideReason</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;&gt;</code></h4>
+<h4 id='method.find_override_toolchain_or_default' class='method'><code>fn <a href='#method.find_override_toolchain_or_default' class='fnname'>find_override_toolchain_or_default</a>(&amp;self, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='struct' href='../multirust/struct.Toolchain.html' title='multirust::Toolchain'>Toolchain</a>, <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../multirust/enum.OverrideReason.html' title='multirust::OverrideReason'>OverrideReason</a>&gt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;&gt;</code></h4>
+<h4 id='method.list_toolchains' class='method'><code>fn <a href='#method.list_toolchains' class='fnname'>list_toolchains</a>(&amp;self) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<h4 id='method.update_all_channels' class='method'><code>fn <a href='#method.update_all_channels' class='fnname'>update_all_channels</a>(&amp;self) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>, <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;&gt;</code></h4>
+<h4 id='method.check_metadata_version' class='method'><code>fn <a href='#method.check_metadata_version' class='fnname'>check_metadata_version</a>(&amp;self) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.toolchain_for_dir' class='method'><code>fn <a href='#method.toolchain_for_dir' class='fnname'>toolchain_for_dir</a>(&amp;self, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='struct' href='../multirust/struct.Toolchain.html' title='multirust::Toolchain'>Toolchain</a>, <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../multirust/enum.OverrideReason.html' title='multirust::OverrideReason'>OverrideReason</a>&gt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+<h4 id='method.create_command_for_dir' class='method'><code>fn <a href='#method.create_command_for_dir' class='fnname'>create_command_for_dir</a>(&amp;self, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, binary: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/process/struct.Command.html' title='std::process::Command'>Command</a>&gt;</code></h4>
+<h4 id='method.doc_path_for_dir' class='method'><code>fn <a href='#method.doc_path_for_dir' class='fnname'>doc_path_for_dir</a>(&amp;self, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, relative: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html' title='std::path::PathBuf'>PathBuf</a>&gt;</code></h4>
+<h4 id='method.open_docs_for_dir' class='method'><code>fn <a href='#method.open_docs_for_dir' class='fnname'>open_docs_for_dir</a>(&amp;self, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, relative: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../multirust/type.Result.html' title='multirust::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../multirust/struct.Cfg.html' title='multirust::Cfg'>Cfg</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "multirust";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

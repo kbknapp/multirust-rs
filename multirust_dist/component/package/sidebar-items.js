@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["INSTALLER_VERSION","The current metadata revision used by rust-installer"],["VERSION_FILE",""]],"struct":[["DirectoryPackage",""],["TarGzPackage",""],["TarPackage",""]],"trait":[["Package",""]]});

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `notify` mod in crate `multirust_utils`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, notify">
+
+    <title>multirust_utils::notify - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>multirust_utils</a></p><script>window.sidebarCurrent = {name: 'notify', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>multirust_utils</a>::<wbr><a class='mod' href=''>notify</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-7' class='srclink' href='../../src/multirust_utils/src/multirust-utils/src/notify.rs.html.html#1-181' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Notification handlers.</p>
+
+<p>These are used to bubble up information about what is happening
+inside the program. They are composed as error types commonly are.</p>
+
+<p>The major types:</p>
+
+<ul>
+<li><code>Notifyable&lt;N&gt;</code>. Types implementing this can receive
+notifications of <code>N</code> through the <code>call</code> method.  These are
+passed around as trait objects. Closures over <code>N</code> automatically
+implement <code>Notifyable&lt;N&gt;</code>.</li>
+<li><code>NotifyHandler&lt;&#39;a, N&gt;(Option&lt;&amp;N&gt;)</code>. A wrapper around
+<code>Notifyable</code> objects, passed as values.  Functions that need to
+emit notifications take these by value.</li>
+<li><code>Notification</code>. By convention, the name of an enum in each
+module that defines the notifications that module emits.</li>
+</ul>
+
+<p>Notifications are composed in a hierarchy. For example, this crate
+defines <code>temp::Notification</code>, and <code>utils::Notification</code>, and
+futher defines <code>errors::Notification</code>, the top-level notification
+enum which encapsulates both in the variants
+<code>Notification::Temp(temp::Notification)</code> and
+<code>Notification::Utils(utils::Notification)</code>.</p>
+
+<p>A <code>NotifyHandler&lt;_, error::Notification&gt;</code> can be turned into a
+<code>NotifyHandler&lt;_, temp::Notification&gt;</code> by calling
+<code>temp::NotifyHandler::some(&amp;my_error_notify_handler)</code>. This works
+because <code>NotifyHandler&lt;_, error::Notification&gt;</code> implements
+<code>Notifyable&lt;temp::Notification&gt;</code> via the <code>extend_notification!</code>
+macro.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.NotifyHandler.html'
+                               title='multirust_utils::notify::NotifyHandler'>NotifyHandler</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SharedNotifyHandler.html'
+                               title='multirust_utils::notify::SharedNotifyHandler'>SharedNotifyHandler</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.NotificationLevel.html'
+                               title='multirust_utils::notify::NotificationLevel'>NotificationLevel</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.Notifyable.html'
+                               title='multirust_utils::notify::Notifyable'>Notifyable</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "multirust_utils";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

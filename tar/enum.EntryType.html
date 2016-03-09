@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `EntryType` enum in crate `tar`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, EntryType">
+
+    <title>tar::EntryType - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>tar</a></p><script>window.sidebarCurrent = {name: 'EntryType', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>tar</a>::<wbr><a class='enum' href=''>EntryType</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-443' class='srclink' href='../src/tar/entry_type.rs.html.html#9-41' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum EntryType {
+    Regular,
+    Link,
+    Symlink,
+    Char,
+    Block,
+    Directory,
+    Fifo,
+    Continuous,
+    GNULongName,
+    GNULongLink,
+    XGlobalHeader,
+    XHeader,
+    // some variants omitted
+}</pre><div class='docblock'><p>Indicate for the type of file described by a header.</p>
+
+<p>Each <code>Header</code> has an <code>entry_type</code> method returning an instance of this type
+which can be used to inspect what the header is describing.
+A non-exhaustive enum representing the possible entry types</p>
+</div><h2 class='variants'>Variants</h2>
+<table class='variants_table'><tr><td id='variant.Regular'><code>Regular</code></td><td><div class='docblock'><p>Regular file</p>
+</div></td><td></td></tr><tr><td id='variant.Link'><code>Link</code></td><td><div class='docblock'><p>Hard link</p>
+</div></td><td></td></tr><tr><td id='variant.Symlink'><code>Symlink</code></td><td><div class='docblock'><p>Symbolic link</p>
+</div></td><td></td></tr><tr><td id='variant.Char'><code>Char</code></td><td><div class='docblock'><p>Character device</p>
+</div></td><td></td></tr><tr><td id='variant.Block'><code>Block</code></td><td><div class='docblock'><p>Block device</p>
+</div></td><td></td></tr><tr><td id='variant.Directory'><code>Directory</code></td><td><div class='docblock'><p>Directory</p>
+</div></td><td></td></tr><tr><td id='variant.Fifo'><code>Fifo</code></td><td><div class='docblock'><p>Named pipe (fifo)</p>
+</div></td><td></td></tr><tr><td id='variant.Continuous'><code>Continuous</code></td><td><div class='docblock'><p>Implementation-defined &#39;high-performance&#39; type, treated as regular file</p>
+</div></td><td></td></tr><tr><td id='variant.GNULongName'><code>GNULongName</code></td><td><div class='docblock'><p>GNU extension - long file name</p>
+</div></td><td></td></tr><tr><td id='variant.GNULongLink'><code>GNULongLink</code></td><td><div class='docblock'><p>GNU extension - long link name (link target)</p>
+</div></td><td></td></tr><tr><td id='variant.XGlobalHeader'><code>XGlobalHeader</code></td><td><div class='docblock'><p>Global extended header</p>
+</div></td><td></td></tr><tr><td id='variant.XHeader'><code>XHeader</code></td><td><div class='docblock'><p>Extended Header</p>
+</div></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(byte: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type from a raw byte.</p>
+
+<p>Note that the other named constructors of entry type may be more
+appropriate to create a file type from.</p>
+</div><h4 id='method.as_byte' class='method'><code>fn <a href='#method.as_byte' class='fnname'>as_byte</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></h4>
+<div class='docblock'><p>Returns the raw underlying byte that this entry type represents.</p>
+</div><h4 id='method.file' class='method'><code>fn <a href='#method.file' class='fnname'>file</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a regular file.</p>
+</div><h4 id='method.hard_link' class='method'><code>fn <a href='#method.hard_link' class='fnname'>hard_link</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a hard link.</p>
+</div><h4 id='method.symlink' class='method'><code>fn <a href='#method.symlink' class='fnname'>symlink</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a symlink.</p>
+</div><h4 id='method.character_special' class='method'><code>fn <a href='#method.character_special' class='fnname'>character_special</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a character special device.</p>
+</div><h4 id='method.block_special' class='method'><code>fn <a href='#method.block_special' class='fnname'>block_special</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a block special device.</p>
+</div><h4 id='method.dir' class='method'><code>fn <a href='#method.dir' class='fnname'>dir</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a directory.</p>
+</div><h4 id='method.fifo' class='method'><code>fn <a href='#method.fifo' class='fnname'>fifo</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a FIFO.</p>
+</div><h4 id='method.contiguous' class='method'><code>fn <a href='#method.contiguous' class='fnname'>contiguous</a>() -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<div class='docblock'><p>Creates a new entry type representing a contiguous file.</p>
+</div><h4 id='method.is_file' class='method'><code>fn <a href='#method.is_file' class='fnname'>is_file</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a regular file.</p>
+</div><h4 id='method.is_hard_link' class='method'><code>fn <a href='#method.is_hard_link' class='fnname'>is_hard_link</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a hard link.</p>
+</div><h4 id='method.is_symlink' class='method'><code>fn <a href='#method.is_symlink' class='fnname'>is_symlink</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a symlink.</p>
+</div><h4 id='method.is_character_special' class='method'><code>fn <a href='#method.is_character_special' class='fnname'>is_character_special</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a character special device.</p>
+</div><h4 id='method.is_block_special' class='method'><code>fn <a href='#method.is_block_special' class='fnname'>is_block_special</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a block special device.</p>
+</div><h4 id='method.is_dir' class='method'><code>fn <a href='#method.is_dir' class='fnname'>is_dir</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a directory.</p>
+</div><h4 id='method.is_fifo' class='method'><code>fn <a href='#method.is_fifo' class='fnname'>is_fifo</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a FIFO.</p>
+</div><h4 id='method.is_contiguous' class='method'><code>fn <a href='#method.is_contiguous' class='fnname'>is_contiguous</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a contiguous file.</p>
+</div><h4 id='method.is_gnu_longname' class='method'><code>fn <a href='#method.is_gnu_longname' class='fnname'>is_gnu_longname</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a GNU long name header.</p>
+</div><h4 id='method.is_gnu_longlink' class='method'><code>fn <a href='#method.is_gnu_longlink' class='fnname'>is_gnu_longlink</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a GNU long link header.</p>
+</div><h4 id='method.is_pax_global_extensions' class='method'><code>fn <a href='#method.is_pax_global_extensions' class='fnname'>is_pax_global_extensions</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a GNU long name header.</p>
+</div><h4 id='method.is_pax_local_extensions' class='method'><code>fn <a href='#method.is_pax_local_extensions' class='fnname'>is_pax_local_extensions</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns whether this type represents a GNU long link header.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../tar/enum.EntryType.html' title='tar::EntryType'>EntryType</a></code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "tar";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
