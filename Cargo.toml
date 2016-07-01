@@ -21,7 +21,7 @@ build = "build.rs"
 rustup-dist = { path = "src/rustup-dist", version = "0.2.0" }
 rustup-utils = { path = "src/rustup-utils", version = "0.2.0" }
 error-chain = { path = "src/error-chain", version = "0.2.0" }
-clap = "2.2.4"
+clap = "2.9.1"
 regex = "0.1.41"
 url = "1.1.0"
 term = "0.4.4"
@@ -35,6 +35,9 @@ rustc-serialize = "0.3"
 sha2 = "0.1.2"
 markdown = { git="https://github.com/Diggsey/markdown.rs.git" }
 toml = "0.1.27"
+
+[build-dependencies]
+clap = "2.9.1"
 
 [target."cfg(windows)".dependencies]
 winapi = "0.2.4"

@@ -38,6 +38,7 @@ mod download_tracker;
 mod multirust_mode;
 mod proxy_mode;
 mod setup_mode;
+mod rustup_app;
 mod rustup_mode;
 mod self_update;
 mod job;

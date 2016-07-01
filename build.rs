@@ -5,6 +5,11 @@ use std::io::Write;
 use std::path::PathBuf;
 use std::process::Command;
 
+extern crate clap;
+use clap::Shell;
+
+include!("src/rustup-cli/rustup_app.rs");
+
 struct Ignore;
 
 impl<E> From<E> for Ignore
@@ -22,6 +27,9 @@ fn main() {
         .unwrap()
         .write_all(commit_info().as_bytes())
         .unwrap();
+
+    let mut app = cli();
+    app.gen_completions("rustup", Shell::Bash, env::var_os("OUT_DIR").unwrap());
 }
 
 // Try to get hash and date of the last commit on a best effort basis. If anything goes wrong
